@@ -1,0 +1,65 @@
+<nav *ngIf="!isNotificationPage">
+  <!--nav_bar avec icones pour les autre page autre que login-->
+  <nav class="navbar navbar-expand-lg custom-navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="http://www.st2i.com.tn/wp-content/uploads/2018/09/groupe-white-e1536852750698.png"
+          alt="Logo de la société" class="me-2" style="height: 40px;" />
+        Gestion des congés
+      </a>
+  
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="notification-icon" routerLink="/notification" > <i class="fa-solid fa-bell"></i></a>
+          </li>
+          
+          <!-- Bouton utilisateur -->
+          <li class="nav-item dropdown">
+            <a class="nav-link user-icon" (click)="toggleDropdown()">
+              <i class="fa-solid fa-user"></i>
+            </a>
+         
+            <div class="dropdown-menu" *ngIf="isDropdownVisible">
+              <p class="dropdown-item"><strong>Nom :</strong> {{ userName }}</p>
+              <p class="dropdown-item"><strong>email :</strong> {{ userEmail }}</p>
+              <button (click)="logout()">Logout</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  </nav>
+  <nav *ngIf="isNotificationPage">
+    <nav class="navbar navbar-expand-lg custom-navbar">
+      <div class="container-fluid">
+    
+        
+        <a class="navbar-brand" href="#"><i class="fa-solid fa-g fa-bounce" style="color: #f4f7fa;"></i>estion des <i class="fa-solid fa-c fa-bounce"></i>ongés</a>
+    
+       
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          
+         
+        </div>
+      </div>
+    </nav>
+    
+  </nav>
+  
+  <router-outlet></router-outlet>
+  <footer class="footer bg-dark text-white text-center py-3">
+    &copy; 2025 Gestion des Congés. Tous droits réservés.
+  </footer>
